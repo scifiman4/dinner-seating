@@ -28,6 +28,7 @@ import java.util.TreeSet;
 public class Config {
 
 	/** How many weeks table assignments last for. */
+	// TODO customizable assignment length
 	public static int ASSIGNMENT_LENGTH = 2;
 
 	/** How many people from the same country can sit together. */

@@ -3,4 +3,4 @@
 .classpath
 .settings
 saves
-bin
+.DS_Store

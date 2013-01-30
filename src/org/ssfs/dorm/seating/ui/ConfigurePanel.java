@@ -70,7 +70,8 @@ public class ConfigurePanel extends DinnerPanel implements ChangeListener {
 		configTabs.addChangeListener(this);
 		configTabs.addTab(tabTitles[0], makeJTablePanel(true));
 		configTabs.addTab(tabTitles[1], makeJTablePanel(false));
-		// configTabs.addTab(tabTitles[2], new RestrictionPanel()); // TODO
+		// TODO unhide restriction panel
+		// configTabs.addTab(tabTitles[2], new RestrictionPanel());
 		configTabs.setFocusable(false);
 
 		add(configTabs, BorderLayout.CENTER);

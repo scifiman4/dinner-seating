@@ -63,7 +63,7 @@ public class AssignmentFrame extends JFrame {
 		mainPanel = new JPanel(mainLayout);
 
 		mainPanel.add(new ConfigurePanel(), ConfigurePanel.name);
-		// TODO
+		// TODO unhide History-,Home-,SeatAssignment-Panels
 		// mainPanel.add(new HistoryPanel(), HistoryPanel.name);
 		// mainPanel.add(new HomePanel(), HomePanel.name);
 		// mainPanel.add(new SeatAssignmentPanel(), SeatAssignmentPanel.name);
