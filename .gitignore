@@ -1,6 +1,4 @@
 .class
-.project
-.classpath
 .settings
-saves
 .DS_Store
+saves
