@@ -1,11 +1,3 @@
-/*
- * File Name:
- * Main.java
- * 
- * Last Updated:
- * Jul 6, 2012 10:11:55 PM
- * 
- */
 
 package org.ssfs.dorm.seating.ui;
 
@@ -15,8 +7,6 @@ import org.ssfs.dorm.seating.domain.Config;
 
 /**
  * The Class Main.
- * 
- * @author Matthew Denaburg '10
  */
 public class Main {
 

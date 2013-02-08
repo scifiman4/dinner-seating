@@ -1,9 +1,3 @@
-/*
- * File Name	:		Config.java
- * 
- * Last Updated	:		Dec 19, 2012 8:01:23 AM
- * 
- */
 
 package org.ssfs.dorm.seating.domain;
 

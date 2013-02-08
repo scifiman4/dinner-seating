@@ -1,9 +1,3 @@
-/*
- * File Name	:		SeatAssigner.java
- * 
- * Last Updated	:		Dec 19, 2012 8:01:44 AM
- * 
- */
 
 package org.ssfs.dorm.seating.domain;
 

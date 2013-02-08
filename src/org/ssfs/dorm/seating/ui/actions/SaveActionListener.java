@@ -1,11 +1,3 @@
-/*
- * File Name:
- * SaveActionListener.java
- * 
- * Last Updated:
- * Jul 20, 2012 2:12:25 PM
- * 
- */
 
 package org.ssfs.dorm.seating.ui.actions;
 

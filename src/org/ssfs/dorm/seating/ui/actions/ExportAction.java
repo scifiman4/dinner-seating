@@ -1,11 +1,3 @@
-/*
- * File Name:
- * ExportAction.java
- * 
- * Last Updated:
- * Jul 30, 2012 11:35:33 AM
- * 
- */
 
 package org.ssfs.dorm.seating.ui.actions;
 
@@ -19,8 +11,6 @@ import org.ssfs.dorm.seating.domain.Config;
 
 /**
  * The Class ExportAction.
- * 
- * @author Matthew Denaburg '10
  */
 public class ExportAction extends AbstractAction {
 

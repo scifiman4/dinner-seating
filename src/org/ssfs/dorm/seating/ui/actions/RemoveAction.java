@@ -1,11 +1,13 @@
-/*
- * File Name:
- * RemoveAction.java
- * 
- * Last Updated:
- * Jul 30, 2012 11:40:07 AM
- * 
- */
+import java.awt.event.ActionEvent;
+
+import javax.swing.AbstractAction;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import org.ssfs.dorm.seating.domain.Config;
+import org.ssfs.dorm.seating.domain.DinnerObject;
+
 
 package org.ssfs.dorm.seating.ui.actions;
 
@@ -21,8 +23,6 @@ import org.ssfs.dorm.seating.domain.DinnerObject;
 
 /**
  * The Class RemoveAction.
- * 
- * @author Matthew Denaburg '10
  */
 public class RemoveAction extends AbstractAction {
 

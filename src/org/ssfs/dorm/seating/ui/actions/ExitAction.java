@@ -1,11 +1,3 @@
-/*
- * File Name:
- * ExitAction.java
- * 
- * Last Updated:
- * Jul 6, 2012 10:11:55 PM
- * 
- */
 
 package org.ssfs.dorm.seating.ui.actions;
 
@@ -32,7 +24,6 @@ import org.ssfs.dorm.seating.domain.Config;
  * here</a>.
  * 
  * @author <a href="http://tips4java.wordpress.com/">Rob Camick</a>
- * @author Matthew Denaburg '10
  */
 public class ExitAction extends AbstractAction {
 

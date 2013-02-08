@@ -1,11 +1,3 @@
-/*
- * File Name:
- * LoadAction.java
- * 
- * Last Updated:
- * Jul 30, 2012 11:37:02 AM
- * 
- */
 
 package org.ssfs.dorm.seating.ui.actions;
 
@@ -23,8 +15,6 @@ import org.ssfs.dorm.seating.domain.DinnerObject;
 
 /**
  * The Class LoadAction.
- * 
- * @author Matthew Denaburg '10
  */
 @SuppressWarnings("javadoc")
 public class LoadAction extends AbstractAction {

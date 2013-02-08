@@ -1,11 +1,3 @@
-/*
- * File Name:
- * HomePanel.java
- * 
- * Last Updated:
- * Jul 6, 2012 10:11:54 PM
- * 
- */
 
 package org.ssfs.dorm.seating.ui;
 
@@ -23,8 +15,6 @@ import javax.swing.SwingUtilities;
 
 /**
  * The Class HomePanel.
- * 
- * @author Matthew Denaburg '10
  */
 public class HomePanel extends DinnerPanel implements ActionListener {
 

@@ -1,11 +1,3 @@
-/*
- * File Name:
- * SelectStudentsPanel.java
- * 
- * Last Updated:
- * Jul 6, 2012 10:11:55 PM
- * 
- */
 
 package org.ssfs.dorm.seating.ui;
 
@@ -39,8 +31,6 @@ import org.ssfs.dorm.seating.domain.Person;
 
 /**
  * The Class SelectStudentsPanel.
- * 
- * @author Matthew Denaburg '10
  */
 class SelectStudentsPanel extends JPanel implements ActionListener,
 		ListCellRenderer<Person>, ListSelectionListener {

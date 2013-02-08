@@ -1,11 +1,3 @@
-/*
- * File Name:
- * AssignmentFrame.java
- * 
- * Last Updated:
- * Jul 6, 2012 10:11:54 PM
- * 
- */
 
 package org.ssfs.dorm.seating.ui;
 
@@ -26,8 +18,6 @@ import org.ssfs.dorm.seating.ui.actions.ExitAction;
 
 /**
  * This is the main frame / window for the GUI.
- * 
- * @author Matthew Denaburg '10
  */
 public class AssignmentFrame extends JFrame {
 

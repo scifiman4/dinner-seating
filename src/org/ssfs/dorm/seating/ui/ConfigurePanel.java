@@ -1,11 +1,3 @@
-/*
- * File Name:
- * ConfigurePanel.java
- * 
- * Last Updated:
- * Jul 6, 2012 10:11:55 PM
- * 
- */
 
 package org.ssfs.dorm.seating.ui;
 
@@ -42,8 +34,6 @@ import org.ssfs.dorm.seating.ui.actions.SaveActionListener;
 
 /**
  * This is the panel that is used to configure the system.
- * 
- * @author Matthew Denaburg '10
  */
 public class ConfigurePanel extends DinnerPanel implements ChangeListener {
 

@@ -1,11 +1,3 @@
-/*
- * File Name:
- * ListDialog.java
- * 
- * Last Updated:
- * Jul 6, 2012 10:11:55 PM
- * 
- */
 
 package org.ssfs.dorm.seating.ui;
 
@@ -48,8 +40,6 @@ import org.ssfs.dorm.seating.domain.Person;
  * 		locatorComponent, 'A description of the list:', 'Dialog Title',
  * 		choices, choices[0]);
  * </pre>
- * 
- * @author Matthew Denaburg '10
  */
 public class ListDialog extends JDialog implements ActionListener,
 		ListSelectionListener {

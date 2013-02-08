@@ -1,9 +1,3 @@
-/*
- * File Name	:		DinnerObject.java
- * 
- * Last Updated	:		Dec 17, 2012 5:41:55 PM
- * 
- */
 
 package org.ssfs.dorm.seating.domain;
 

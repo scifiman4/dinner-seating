@@ -1,11 +1,3 @@
-/*
-w * File Name:
- * SeatAssignmentPanel.java
- * 
- * Last Updated:
- * Jul 10, 2012 2:02:39 PM
- * 
- */
 
 package org.ssfs.dorm.seating.ui;
 
@@ -27,8 +19,6 @@ import org.ssfs.dorm.seating.domain.SeatAssigner;
 
 /**
  * The Class SeatAssignmentPanel.
- * 
- * @author Matthew Denaburg '10
  */
 public class SeatAssignmentPanel extends DinnerPanel {
 

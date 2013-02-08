@@ -1,11 +1,3 @@
-/*
- * File Name:
- * HistoryPanel.java
- * 
- * Last Updated:
- * Jul 6, 2012 10:11:55 PM
- * 
- */
 
 package org.ssfs.dorm.seating.ui;
 
@@ -27,13 +19,12 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
+import org.ssfs.dorm.seating.domain.Config;
 import org.ssfs.dorm.seating.domain.Person;
 import org.ssfs.dorm.seating.domain.Table;
 
 /**
  * The Class HistoryPanel.
- * 
- * @author Matthew Denaburg '10
  */
 public class HistoryPanel extends DinnerPanel {
 

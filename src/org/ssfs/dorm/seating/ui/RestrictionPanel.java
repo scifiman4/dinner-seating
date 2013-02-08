@@ -1,11 +1,3 @@
-/*
- * File Name:
- * RestrictionPanel.java
- * 
- * Last Updated:
- * Jul 6, 2012 10:11:55 PM
- * 
- */
 
 package org.ssfs.dorm.seating.ui;
 
@@ -33,13 +25,12 @@ import javax.swing.JViewport;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 
+import org.ssfs.dorm.seating.domain.Config;
 import org.ssfs.dorm.seating.domain.Person;
 import org.ssfs.dorm.seating.ui.actions.SaveActionListener;
 
 /**
  * The Class RestrictionPanel.
- * 
- * @author Matthew Denaburg '10
  */
 public class RestrictionPanel extends JPanel implements ItemListener {
 

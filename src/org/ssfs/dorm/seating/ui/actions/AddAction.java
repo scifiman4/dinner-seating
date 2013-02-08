@@ -1,11 +1,3 @@
-/*
- * File Name:
- * AddAction.java
- * 
- * Last Updated:
- * Jul 30, 2012 11:34:20 AM
- * 
- */
 
 package org.ssfs.dorm.seating.ui.actions;
 
@@ -27,8 +19,6 @@ import org.ssfs.dorm.seating.domain.Table;
 
 /**
  * The Class AddAction.
- * 
- * @author Matthew Denaburg '10
  */
 public class AddAction extends AbstractAction {
 

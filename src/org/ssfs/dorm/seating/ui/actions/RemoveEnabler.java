@@ -1,11 +1,3 @@
-/*
- * File Name:
- * RemoveEnabler.java
- * 
- * Last Updated:
- * Aug 2, 2012 1:43:36 PM
- * 
- */
 
 package org.ssfs.dorm.seating.ui.actions;
 
@@ -16,8 +8,6 @@ import javax.swing.event.ListSelectionListener;
 
 /**
  * The Class RemoveEnabler.
- * 
- * @author Matthew Denaburg '10
  */
 public class RemoveEnabler implements ListSelectionListener {
 

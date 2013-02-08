@@ -1,11 +1,3 @@
-/*
- * File Name:
- * DinnerPanel.java
- * 
- * Last Updated:
- * Jul 6, 2012 10:11:54 PM
- * 
- */
 
 package org.ssfs.dorm.seating.ui;
 
@@ -23,8 +15,6 @@ import javax.swing.SwingUtilities;
 
 /**
  * This is the base panel for all of the main display panels in the GUI.
- * 
- * @author Matthew Denaburg '10
  */
 public abstract class DinnerPanel extends JPanel implements ActionListener {
 

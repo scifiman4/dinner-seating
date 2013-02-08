@@ -1,9 +1,3 @@
-/*
- * File Name	:		RestrictionDatabase.java
- * 
- * Last Updated	:		Dec 28, 2012 11:09:25 AM
- * 
- */
 
 package org.ssfs.dorm.seating.domain;
 

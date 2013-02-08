@@ -21,24 +21,25 @@ import java.util.TreeSet;
 @SuppressWarnings("javadoc")
 public class Table implements Comparable<Table>, DinnerObject, Serializable {
 
-	/** The table's id. */
+	/** The Table's id. */
 	private int id;
 
 	/** who the table host is */
 	private String name;
 
-	/** how many seats the table has. */
+	/** how many seats the Table has. */
 	private int tableSize;
 
 	/** who is sitting at the table */
 	private Set<Person> members;
 
-	/** the next id */
+	/** the id of the next Table */
 	private static int nextId;
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 7802939084043227619L;
 
-	/** all of the tables */
+	/** all of the Tables */
 	private static List<Table> tables;
 
 	public Table(String name, int size) {
@@ -66,11 +67,11 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 		if (tableSize == members.size()) {
 			return ValidatorConstants.FULL;
 		}
-		// cannot sit with people already here
-		RestrictionDatabase rdb = RestrictionDatabase.getInstance();
-		if (!Collections.disjoint(rdb.get(p), members)) {
-			return ValidatorConstants.DISJOINT;
-		}
+//		// cannot sit with people already here
+		// RestrictionDatabase rdb = RestrictionDatabase.getInstance();
+		// if (!Collections.disjoint(rdb.get(p), members)) {
+		// return ValidatorConstants.DISJOINT;
+		// }
 		// can't sit more than X times
 		if (p.getTimesSatHere(this) > Config.MAX_TIMES_AT_TABLE) {
 			return ValidatorConstants.TOO_MANY_TIMES;
