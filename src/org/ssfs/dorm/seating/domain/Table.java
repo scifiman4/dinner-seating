@@ -62,24 +62,24 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 	}
 
 	public int canSitHere(Person p) {
-		// table full
+		// is the table full?
 		if (tableSize == members.size()) {
 			return ValidatorConstants.FULL;
 		}
-		// cannot sit with people already here
-		RestrictionDatabase rdb = RestrictionDatabase.getInstance();
-		if (!Collections.disjoint(rdb.get(p), members)) {
-			return ValidatorConstants.DISJOINT;
-		}
-		// can't sit more than X times
+		// // can they sit with people already here?
+		// Restriction rdb = Restriction
+		// if (!Collections.disjoint(rdb.get(p), members)) {
+		// return ValidatorConstants.DISJOINT;
+		// }
+		// have they sat here too many times?
 		if (p.getTimesSatHere(this) > Config.MAX_TIMES_AT_TABLE) {
 			return ValidatorConstants.TOO_MANY_TIMES;
 		}
-		// sat here last time
+		// did they sit here last time?
 		if (p.satHereLastTime(this)) {
 			return ValidatorConstants.LAST_TIME;
 		}
-		// or if too many people of the same nationality are already here
+		// are too many people of the same nationality are already here?
 		List<String> countryCounts = new ArrayList<String>();
 		for (Person i : members) {
 			countryCounts.add(i.getNationality());
@@ -99,6 +99,15 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 		return id - o.id;
 	}
 
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + tableSize;
+		return result;
+	}
+
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
@@ -111,6 +120,16 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 		}
 		Table other = (Table) obj;
 		if (id != other.id) {
+			return false;
+		}
+		if (name == null) {
+			if (other.name != null) {
+				return false;
+			}
+		} else if (!name.equals(other.name)) {
+			return false;
+		}
+		if (tableSize != other.tableSize) {
 			return false;
 		}
 		return true;

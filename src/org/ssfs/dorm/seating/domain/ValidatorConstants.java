@@ -10,6 +10,8 @@ package org.ssfs.dorm.seating.domain;
 @SuppressWarnings("javadoc")
 interface ValidatorConstants {
 
+	// Higher value = lower priority
+
 	public static final int SEATED = 0;
 
 	public static final int LAST_TIME = 10;

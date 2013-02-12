@@ -230,24 +230,11 @@ public class Config {
 	}
 
 	private static void addRestriction(String[] restrict) {
-		RestrictionDatabase rdb = RestrictionDatabase.getInstance();
-
-		List<Person> restrictList = new ArrayList<Person>();
+		Set<Person> restrictList = new TreeSet<Person>();
 		for (String r : restrict) {
 			restrictList.add(getPersonByName(r));
 		}
-
-		for (int i = 0; i < restrictList.size(); i++) {
-			Person key = restrictList.get(i);
-			Set<Person> value = new TreeSet<Person>();
-			for (int j = 0; j < restrictList.size(); j++) {
-				if (i == j) {
-					continue;
-				}
-				value.add(restrictList.get(j));
-			}
-			rdb.put(key, value);
-		}
+		Restriction.makeAddRestrictions(restrictList);
 	}
 
 	private static File makeParent() {
