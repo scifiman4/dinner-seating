@@ -84,21 +84,11 @@ public class Config {
 	}
 
 	public static Person getPersonByName(String id) {
-		for (Person d : Person.getAllPeople()) {
-			if (d.getName().equals(id)) {
-				return d;
-			}
-		}
-		return null;
+		return Person.getPerson(id);
 	}
 
 	public static Table getTableByName(String id) {
-		for (Table d : Table.getAllTables()) {
-			if (d.getName().equals(id)) {
-				return d;
-			}
-		}
-		return null;
+		return Table.getTable(id);
 	}
 
 	public static List<? extends DinnerObject> getType(boolean wantsTables) {
