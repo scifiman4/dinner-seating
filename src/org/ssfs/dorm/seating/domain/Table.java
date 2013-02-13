@@ -14,6 +14,7 @@ import java.io.Serializable;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -39,17 +40,17 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 	private static final long serialVersionUID = 7802939084043227619L;
 
 	/** all of the tables */
-	private static List<Table> tables;
+	private static Hashtable<String, Table> tableHash;
 
 	public Table(String name, int size) {
 		this.name = name;
 		tableSize = size;
 		id = nextId++;
 		members = new TreeSet<Person>();
-		if (tables == null) {
-			tables = new ArrayList<Table>();
+		if (tableHash == null) {
+			tableHash = new Hashtable<String, Table>();
 		}
-		tables.add(this);
+		tableHash.put(name, this);
 	}
 
 	/**
@@ -57,8 +58,11 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 	 * {@link #load(ObjectInputStream)}
 	 */
 	private Table() {
-		name = "";
-		tableSize = 0;
+		this("", 0);
+	}
+
+	private Table(Table o) {
+		this(o.name, o.tableSize);
 	}
 
 	public int canSitHere(Person p) {
@@ -176,7 +180,7 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 		return name;
 	}
 
-	boolean seatPerson(Person p) {
+	public boolean seatPerson(Person p) {
 		if (members.size() >= tableSize) { // if the table is full
 			return false;
 		}
@@ -184,7 +188,7 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 		return members.add(p);
 	}
 
-	boolean unseatPerson(Person p) {
+	public boolean unseatPerson(Person p) {
 		p.unseat();
 		return members.remove(p);
 	}
@@ -198,7 +202,7 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 		members = (Set<Person>) in.readObject();
 
 		if (id > nextId) {
-			nextId = id;
+			nextId = id + 1;
 		}
 	}
 
@@ -210,14 +214,14 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 	}
 
 	public static List<Table> getAllTables() {
-		if (tables == null) {
-			tables = new ArrayList<Table>();
+		if (tableHash == null) {
+			tableHash = new Hashtable<String, Table>();
 		}
-		return new ArrayList<Table>(tables);
+		return new ArrayList<Table>(tableHash.values());
 	}
 
-	static boolean cannotBeSeated(Person p) {
-		for (Table t : tables) {
+	public static boolean cannotBeSeated(Person p) {
+		for (Table t : tableHash.values()) {
 			if (t.canSitHere(p) == ValidatorConstants.SEATED) {
 				return false;
 			}
@@ -232,10 +236,10 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 	 *            the person to assign
 	 * @return the table
 	 */
-	static Table leastBadTable(Person p) {
+	public static Table leastBadTable(Person p) {
 		int leastBadValue = Integer.MAX_VALUE;
 		Table leastBadTable = null;
-		for (Table t : tables) {
+		for (Table t : tableHash.values()) {
 			int value = t.canSitHere(p);
 			if (value == ValidatorConstants.FULL) {
 				continue;
@@ -248,6 +252,22 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 		return leastBadTable;
 	}
 
+	public static boolean validate() {
+		for (Table t : tableHash.values()) {
+			if (t.getTableSize() != t.getMembers().size()) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static Table getTable(String id) {
+		if (tableHash.containsKey(id)) {
+			return new Table(tableHash.get(id));
+		}
+		return null;
+	}
+
 	static void load(ObjectInputStream in) throws IOException,
 			ClassNotFoundException {
 		int count = in.readInt();
@@ -258,19 +278,10 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 	}
 
 	static void save(ObjectOutputStream out) throws IOException {
-		out.writeInt(tables.size());
-		for (Table t : tables) {
+		out.writeInt(tableHash.size());
+		for (Table t : tableHash.values()) {
 			t.writeObject(out);
 		}
-	}
-
-	static boolean validate() {
-		for (Table t : tables) {
-			if (t.getTableSize() != t.getMembers().size()) {
-				return false;
-			}
-		}
-		return true;
 	}
 
 }
