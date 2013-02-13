@@ -6,9 +6,14 @@ package org.ssfs.dorm.seating.domain;
  */
 interface ValidatorConstants {
 
+<<<<<<< HEAD
 	// TODO: make this customizable
 
 	/** The Constant SEATED. */
+=======
+	// Higher value = lower priority
+
+>>>>>>> 6b59e9616a9f25ba239a927e23db8c6a33c48446
 	public static final int SEATED = 0;
 
 	/** The Constant LAST_TIME. */

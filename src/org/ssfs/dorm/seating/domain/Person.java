@@ -7,6 +7,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -28,7 +29,8 @@ public class Person implements Comparable<Person>, DinnerObject, Serializable {
 
 	private static int nextId;
 
-	private static List<Person> people;
+	/** maps people's names to their object */
+	private static Hashtable<String, Person> peopleHash;
 
 	private static final long serialVersionUID = 6604347254378722998L;
 
@@ -38,10 +40,14 @@ public class Person implements Comparable<Person>, DinnerObject, Serializable {
 		timesAssigned = 0;
 		id = nextId++;
 		pastCounts = new TreeMap<Table, List<Integer>>();
-		if (people == null) {
-			people = new ArrayList<Person>();
+		if (peopleHash == null) {
+			peopleHash = new Hashtable<String, Person>();
 		}
-		people.add(this);
+		peopleHash.put(name, this);
+	}
+
+	private Person(Person o) {
+		this(o.name, o.nationality);
 	}
 
 	private Person() {
@@ -51,6 +57,15 @@ public class Person implements Comparable<Person>, DinnerObject, Serializable {
 
 	public int compareTo(Person o) {
 		return id - o.id;
+	}
+
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((nationality == null) ? 0 : nationality.hashCode());
+		return result;
 	}
 
 	public boolean equals(Object obj) {
@@ -64,7 +79,18 @@ public class Person implements Comparable<Person>, DinnerObject, Serializable {
 			return false;
 		}
 		Person other = (Person) obj;
-		if (id != other.id) {
+		if (name == null) {
+			if (other.name != null) {
+				return false;
+			}
+		} else if (!name.equals(other.name)) {
+			return false;
+		}
+		if (nationality == null) {
+			if (other.nationality != null) {
+				return false;
+			}
+		} else if (!nationality.equals(other.nationality)) {
 			return false;
 		}
 		return true;
@@ -161,10 +187,17 @@ public class Person implements Comparable<Person>, DinnerObject, Serializable {
 	}
 
 	public static List<Person> getAllPeople() {
-		if (people == null) {
-			people = new ArrayList<Person>();
+		if (peopleHash == null) {
+			peopleHash = new Hashtable<String, Person>();
 		}
-		return new ArrayList<Person>(people);
+		return new ArrayList<Person>(peopleHash.values());
+	}
+
+	public static Person getPerson(String name) {
+		if (peopleHash.containsKey(name)) {
+			return new Person(peopleHash.get(name));
+		}
+		return null;
 	}
 
 	static void load(ObjectInputStream in) throws IOException,
@@ -177,8 +210,8 @@ public class Person implements Comparable<Person>, DinnerObject, Serializable {
 	}
 
 	static void save(ObjectOutputStream out) throws IOException {
-		out.writeInt(people.size());
-		for (Person p : people) {
+		out.writeInt(peopleHash.size());
+		for (Person p : peopleHash.values()) {
 			p.writeObject(out);
 		}
 	}

@@ -78,21 +78,11 @@ public class Config {
 	}
 
 	public static Person getPersonByName(String id) {
-		for (Person d : Person.getAllPeople()) {
-			if (d.getName().equals(id)) {
-				return d;
-			}
-		}
-		return null;
+		return Person.getPerson(id);
 	}
 
 	public static Table getTableByName(String id) {
-		for (Table d : Table.getAllTables()) {
-			if (d.getName().equals(id)) {
-				return d;
-			}
-		}
-		return null;
+		return Table.getTable(id);
 	}
 
 	public static List<? extends DinnerObject> getType(boolean wantsTables) {
@@ -224,24 +214,11 @@ public class Config {
 	}
 
 	private static void addRestriction(String[] restrict) {
-		RestrictionDatabase rdb = RestrictionDatabase.getInstance();
-
-		List<Person> restrictList = new ArrayList<Person>();
+		Set<Person> restrictList = new TreeSet<Person>();
 		for (String r : restrict) {
 			restrictList.add(getPersonByName(r));
 		}
-
-		for (int i = 0; i < restrictList.size(); i++) {
-			Person key = restrictList.get(i);
-			Set<Person> value = new TreeSet<Person>();
-			for (int j = 0; j < restrictList.size(); j++) {
-				if (i == j) {
-					continue;
-				}
-				value.add(restrictList.get(j));
-			}
-			rdb.put(key, value);
-		}
+		Restriction.makeAddRestrictions(restrictList);
 	}
 
 	private static File makeParent() {
