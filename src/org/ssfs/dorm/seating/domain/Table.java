@@ -75,14 +75,7 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 		// if (!Collections.disjoint(rdb.get(p), members)) {
 		// return ValidatorConstants.DISJOINT;
 		// }
-		// have they sat here too many times?
-		if (p.getTimesSatHere(this) > Config.MAX_TIMES_AT_TABLE) {
-			return ValidatorConstants.TOO_MANY_TIMES;
-		}
-		// did they sit here last time?
-		if (p.satHereLastTime(this)) {
-			return ValidatorConstants.LAST_TIME;
-		}
+
 		// are too many people of the same nationality are already here?
 		List<String> countryCounts = new ArrayList<String>();
 		for (Person i : members) {
@@ -91,6 +84,15 @@ public class Table implements Comparable<Table>, DinnerObject, Serializable {
 		int freq = Collections.frequency(countryCounts, p.getNationality());
 		if (freq > Config.MAX_PEOPLE_FROM_SAME_COUNTRY) {
 			return ValidatorConstants.COUNTRIES;
+		}
+		// did they sit here last time?
+		if (p.satHereLastTime(this)) {
+			return ValidatorConstants.LAST_TIME;
+		}
+
+		// have they sat here too many times?
+		if (p.getTimesSatHere(this) > Config.MAX_TIMES_AT_TABLE) {
+			return ValidatorConstants.TOO_MANY_TIMES;
 		}
 		return ValidatorConstants.SEATED;
 	}
