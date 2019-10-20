@@ -1,5 +1,7 @@
-.settings
-.DS_Store
-.DS_Store?
-saves
-./bin/
+bin/
+test-*/
+tests-*/
+.settings/
+*.class
+.project
+.classpath
